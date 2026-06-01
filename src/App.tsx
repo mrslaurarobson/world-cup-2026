@@ -221,6 +221,7 @@ export default function App() {
             >
               <LeaderboardTable
                 valueLabel="Points"
+                nameLabel="Team"
                 rows={groupTied(dirty, (r) => r.team).map((g) => {
                   const owners = Array.from(
                     new Set(g.items.map((i) => i.player))

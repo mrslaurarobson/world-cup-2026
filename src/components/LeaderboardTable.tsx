@@ -13,6 +13,8 @@ interface Row {
 interface Props {
   rows: Row[];
   valueLabel: string;
+  // Heading for the name column (e.g. "Player" or "Team").
+  nameLabel?: string;
   // When true, the first row is the "winner" of this prize and gets highlighted.
   highlightLeader?: boolean;
   emptyText?: string;
@@ -23,6 +25,7 @@ interface Props {
 export default function LeaderboardTable({
   rows,
   valueLabel,
+  nameLabel = "Player",
   highlightLeader = true,
   emptyText = "No data yet.",
   initialCount = 5,
@@ -48,7 +51,7 @@ export default function LeaderboardTable({
         <thead>
           <tr>
             <th className="rank-col">#</th>
-            <th>Player</th>
+            <th>{nameLabel}</th>
             <th className="value-col">{valueLabel}</th>
           </tr>
         </thead>
