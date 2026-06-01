@@ -5,7 +5,7 @@
   --card-2: #20294a;
   --border: #2b3658;
   --text: #eef2ff;
-  --muted: #9aa6c7;
+  --muted: #77819d;
   --accent: #4cc9f0;
   --gold: #ffd76a;
   --silver: #cdd6e4;
@@ -120,7 +120,7 @@ body {
 .prize-header {
   display: grid;
   grid-template-columns: auto 1fr auto;
-  gap: 12px;
+  gap: 18px;
   align-items: center;
   padding: 16px 18px;
   border-bottom: 1px solid var(--border);
@@ -129,6 +129,8 @@ body {
 .prize-emoji {
   font-size: 1.8rem;
   line-height: 1;
+  align-self: start;
+  margin-top: 5px;
 }
 
 .prize-heading h2 {
@@ -152,6 +154,7 @@ body {
   padding: 4px 10px;
   border-radius: 999px;
   white-space: nowrap;
+  align-self: start;
 }
 
 .prize-body {
