@@ -1,0 +1,50 @@
+[
+  {
+    "id": "grp-1",
+    "stage": "group",
+    "teamA": "Mexico",
+    "teamB": "Canada",
+    "scoreA": 2,
+    "scoreB": 1,
+    "yellowA": 1,
+    "redA": 0,
+    "yellowB": 3,
+    "redB": 1
+  },
+  {
+    "id": "grp-2",
+    "stage": "group",
+    "teamA": "France",
+    "teamB": "Australia",
+    "scoreA": 4,
+    "scoreB": 0,
+    "yellowA": 0,
+    "redA": 0,
+    "yellowB": 2,
+    "redB": 0
+  },
+  {
+    "id": "grp-3",
+    "stage": "group",
+    "teamA": "Brazil",
+    "teamB": "Norway",
+    "scoreA": 1,
+    "scoreB": 1,
+    "yellowA": 2,
+    "redA": 1,
+    "yellowB": 1,
+    "redB": 0
+  },
+  {
+    "id": "grp-4",
+    "stage": "group",
+    "teamA": "England",
+    "teamB": "Senegal",
+    "scoreA": 3,
+    "scoreB": 0,
+    "yellowA": 1,
+    "redA": 0,
+    "yellowB": 4,
+    "redB": 0
+  }
+]

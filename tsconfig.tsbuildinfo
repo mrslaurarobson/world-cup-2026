@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/types.ts","./src/vite-env.d.ts","./src/components/allocationsview.tsx","./src/components/leaderboardtable.tsx","./src/components/matchlist.tsx","./src/components/prizecard.tsx","./src/data/allocations.ts","./src/lib/scoring.ts"],"version":"5.9.3"}
