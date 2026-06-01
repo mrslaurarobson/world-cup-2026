@@ -6,12 +6,43 @@ import AllocationsView from "./components/AllocationsView";
 import AdminForm from "./components/AdminForm";
 import {
   biggestHammering,
+  buildTeamStats,
   dirtiestTeam,
   finalResult,
   mostGoals,
   woodenSpoon,
 } from "./lib/scoring";
+import { teamsForPlayer } from "./data/allocations";
 import type { Match } from "./types";
+
+// Combine consecutive entries that are genuinely tied (same value and the same
+// tie-break detail) into a single leaderboard row, e.g. "Abi, Alex, Ffion".
+function groupTied<T extends { value: number; detail?: string }>(
+  rows: T[],
+  label: (row: T) => string
+) {
+  const groups: {
+    items: T[];
+    labels: string[];
+    value: number;
+    detail?: string;
+  }[] = [];
+  for (const r of rows) {
+    const last = groups[groups.length - 1];
+    if (last && last.value === r.value && last.detail === r.detail) {
+      last.items.push(r);
+      last.labels.push(label(r));
+    } else {
+      groups.push({
+        items: [r],
+        labels: [label(r)],
+        value: r.value,
+        detail: r.detail,
+      });
+    }
+  }
+  return groups;
+}
 
 type Tab = "prizes" | "matches" | "allocations" | "admin";
 
@@ -47,6 +78,20 @@ export default function App() {
   const dirty = useMemo(() => dirtiestTeam(matches), [matches]);
   const hammering = useMemo(() => biggestHammering(matches), [matches]);
   const final = useMemo(() => finalResult(matches), [matches]);
+  const teamStats = useMemo(() => buildTeamStats(matches), [matches]);
+
+  // Per-team goal breakdown for a set of players, e.g. "France 4, Brazil 1".
+  // Only teams that have scored are listed, to keep rows compact.
+  const goalsBreakdown = (playerNames: string[]) => {
+    const parts: string[] = [];
+    for (const player of playerNames) {
+      for (const team of teamsForPlayer(player)) {
+        const scored = teamStats[team]?.goalsFor ?? 0;
+        if (scored > 0) parts.push(`${team} ${scored}`);
+      }
+    }
+    return parts.join(", ");
+  };
 
   return (
     <div className="app">
@@ -158,11 +203,12 @@ export default function App() {
             >
               <LeaderboardTable
                 valueLabel="Points"
-                rows={spoon.map((r) => ({
-                  key: r.player,
-                  primary: r.player,
-                  secondary: r.detail,
-                  value: String(r.value),
+                rows={groupTied(spoon, (r) => r.player).map((g) => ({
+                  key: g.labels.join(","),
+                  primary: g.labels.join(", "),
+                  secondary: g.detail,
+                  value: String(g.value),
+                  tieKey: `${g.value}|${g.detail ?? ""}`,
                 }))}
               />
             </PrizeCard>
@@ -175,12 +221,18 @@ export default function App() {
             >
               <LeaderboardTable
                 valueLabel="Points"
-                rows={dirty.map((r) => ({
-                  key: r.team,
-                  primary: r.team,
-                  secondary: `${r.player} · ${r.detail}`,
-                  value: String(r.value),
-                }))}
+                rows={groupTied(dirty, (r) => r.team).map((g) => {
+                  const owners = Array.from(
+                    new Set(g.items.map((i) => i.player))
+                  );
+                  return {
+                    key: g.labels.join(","),
+                    primary: g.labels.join(", "),
+                    secondary: `${owners.join(", ")} · ${g.detail}`,
+                    value: String(g.value),
+                    tieKey: `${g.value}|${g.detail ?? ""}`,
+                  };
+                })}
               />
             </PrizeCard>
 
@@ -192,10 +244,11 @@ export default function App() {
             >
               <LeaderboardTable
                 valueLabel="Goals"
-                rows={goals.map((r) => ({
-                  key: r.player,
-                  primary: r.player,
-                  value: String(r.value),
+                rows={groupTied(goals, (r) => r.player).map((g) => ({
+                  key: g.labels.join(","),
+                  primary: g.labels.join(", "),
+                  secondary: goalsBreakdown(g.labels) || undefined,
+                  value: String(g.value),
                 }))}
               />
             </PrizeCard>

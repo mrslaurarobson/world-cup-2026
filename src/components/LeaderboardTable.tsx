@@ -5,6 +5,9 @@ interface Row {
   primary: string; // main label (player or team)
   secondary?: string; // sub label (e.g. owner, tie-break detail)
   value: string; // formatted metric
+  // Optional key used to decide joint leaders. Defaults to `value`. Set this
+  // to include tie-breakers so only truly-tied rows are highlighted together.
+  tieKey?: string;
 }
 
 interface Props {
@@ -33,6 +36,12 @@ export default function LeaderboardTable({
   const canCollapse = rows.length > initialCount;
   const visibleRows = expanded ? rows : rows.slice(0, initialCount);
 
+  // A row is a (joint) leader if its tie key matches the top row's. The tie
+  // key defaults to the headline value but can include tie-breakers.
+  const keyOf = (row: Row) => row.tieKey ?? row.value;
+  const leadingKey = keyOf(rows[0]);
+  const isLeader = (row: Row) => highlightLeader && keyOf(row) === leadingKey;
+
   return (
     <>
       <table className="leaderboard">
@@ -45,10 +54,7 @@ export default function LeaderboardTable({
         </thead>
         <tbody>
           {visibleRows.map((row, i) => (
-            <tr
-              key={row.key}
-              className={highlightLeader && i === 0 ? "leader" : ""}
-            >
+            <tr key={row.key} className={isLeader(row) ? "leader" : ""}>
               <td className="rank-col">{i + 1}</td>
               <td>
                 <span className="primary">{row.primary}</span>
