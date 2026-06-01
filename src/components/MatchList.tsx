@@ -17,8 +17,8 @@ function owner(team: string): string {
 
 function cardSummary(yellow: number, red: number): string {
   const parts: string[] = [];
-  if (yellow) parts.push(`${yellow}Y`);
-  if (red) parts.push(`${red}R`);
+  if (yellow) parts.push(`${yellow} 🟡`);
+  if (red) parts.push(`${red} 🔴`);
   return parts.length ? parts.join(" ") : "-";
 }
 
@@ -44,6 +44,9 @@ export default function MatchList({ matches }: { matches: Match[] }) {
               <span className={aWin ? "team win" : "team"}>
                 {m.teamA}
                 <span className="team-owner">{owner(m.teamA)}</span>
+                <span className="team-cards">
+                  {cardSummary(m.yellowA, m.redA)}
+                </span>
               </span>
               <span className="match-score">
                 {m.scoreA} <span className="dash">-</span> {m.scoreB}
@@ -51,11 +54,11 @@ export default function MatchList({ matches }: { matches: Match[] }) {
               <span className={bWin ? "team win" : "team"}>
                 {m.teamB}
                 <span className="team-owner">{owner(m.teamB)}</span>
+                <span className="team-cards">
+                  {cardSummary(m.yellowB, m.redB)}
+                </span>
               </span>
             </div>
-            <span className="match-cards">
-              {cardSummary(m.yellowA, m.redA)} / {cardSummary(m.yellowB, m.redB)}
-            </span>
           </div>
         );
       })}

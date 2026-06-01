@@ -26,10 +26,21 @@ body {
 }
 
 body {
-  background: radial-gradient(1200px 600px at 80% -10%, #1d2747 0%, var(--bg) 55%);
+  background: radial-gradient(
+    1200px 600px at 80% -10%,
+    #1d2747 0%,
+    var(--bg) 55%
+  );
   color: var(--text);
-  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica,
-    Arial, sans-serif;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
   line-height: 1.5;
   min-height: 100vh;
 }
@@ -144,7 +155,8 @@ body {
 }
 
 .prize-body {
-  padding: 12px 14px 16px;
+  padding: 16px 14px;
+  flex: 1;
 }
 
 /* Result banner (single-winner prizes) */
@@ -242,6 +254,26 @@ body {
   font-weight: 800;
 }
 
+.show-more {
+  width: 100%;
+  margin-top: 8px;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.show-more:hover {
+  color: var(--text);
+  border-color: var(--accent);
+}
+
 /* Match list */
 .match-list {
   display: flex;
@@ -252,7 +284,7 @@ body {
 
 .match-row {
   display: grid;
-  grid-template-columns: 110px 1fr auto;
+  grid-template-columns: 110px 1fr;
   gap: 12px;
   align-items: center;
   background: var(--card);
@@ -270,7 +302,7 @@ body {
 .match-teams {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
-  gap: 10px;
+  gap: 20px;
   align-items: center;
 }
 
@@ -295,6 +327,15 @@ body {
   font-weight: 500;
 }
 
+.team-cards {
+  font-size: 0.72rem;
+  margin-top: 8px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  color: var(--text);
+  font-weight: 400;
+}
+
 .match-score {
   font-weight: 800;
   font-variant-numeric: tabular-nums;
@@ -303,13 +344,6 @@ body {
 
 .match-score .dash {
   color: var(--muted);
-}
-
-.match-cards {
-  color: var(--muted);
-  font-size: 0.78rem;
-  font-variant-numeric: tabular-nums;
-  white-space: nowrap;
 }
 
 /* Allocations */
@@ -350,6 +384,10 @@ body {
   text-align: center;
   padding: 12px;
   margin: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .empty.error {
@@ -552,8 +590,5 @@ button:disabled {
   .match-row {
     grid-template-columns: 1fr;
     gap: 6px;
-  }
-  .match-cards {
-    justify-self: start;
   }
 }
