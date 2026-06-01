@@ -25,6 +25,33 @@ npm run dev      # http://localhost:5173
 
 ## Updating after a match
 
+You have two ways to update results.
+
+### Option A: Local admin form (recommended)
+
+Run the app locally and use the built-in form:
+
+```bash
+npm run dev      # http://localhost:5173
+```
+
+Open the **Admin** tab (it only appears when running locally), fill in the match
+(teams, scores, cards, optional winner for knockouts/the final) and click **Save
+match**. This writes straight to `public/data/matches.json`. You can also edit or
+delete previously recorded matches there.
+
+The Admin tab is **local-only by design**: the API that writes the file exists
+only in the dev server, and the Admin UI is excluded from the production build,
+so it is never available on the live GitHub Pages site.
+
+When you're happy, commit and push to deploy:
+
+```bash
+git add public/data/matches.json && git commit -m "Add match results" && git push
+```
+
+### Option B: Edit the JSON by hand
+
 1. Open `public/data/matches.json`.
 2. Add a new match object to the array:
 

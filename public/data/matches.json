@@ -46,5 +46,29 @@
     "redA": 0,
     "yellowB": 4,
     "redB": 0
+  },
+  {
+    "id": "group-arg-bra-ykob",
+    "stage": "group",
+    "teamA": "Argentina",
+    "teamB": "Brazil",
+    "scoreA": 2,
+    "scoreB": 1,
+    "yellowA": 1,
+    "redA": 0,
+    "yellowB": 0,
+    "redB": 0
+  },
+  {
+    "id": "group-cur-cro-za6z",
+    "stage": "group",
+    "teamA": "Curaçao",
+    "teamB": "Croatia",
+    "scoreA": 7,
+    "scoreB": 0,
+    "yellowA": 0,
+    "redA": 0,
+    "yellowB": 0,
+    "redB": 0
   }
 ]

@@ -3,6 +3,7 @@ import PrizeCard from "./components/PrizeCard";
 import LeaderboardTable from "./components/LeaderboardTable";
 import MatchList from "./components/MatchList";
 import AllocationsView from "./components/AllocationsView";
+import AdminForm from "./components/AdminForm";
 import {
   biggestHammering,
   dirtiestTeam,
@@ -12,7 +13,11 @@ import {
 } from "./lib/scoring";
 import type { Match } from "./types";
 
-type Tab = "prizes" | "matches" | "allocations";
+type Tab = "prizes" | "matches" | "allocations" | "admin";
+
+// The admin form is only available when running locally (npm run dev). It is
+// never included in the production build, so it cannot be used on the live site.
+const ADMIN_ENABLED = import.meta.env.DEV;
 
 const MATCHES_URL = `${import.meta.env.BASE_URL}data/matches.json`;
 
@@ -69,6 +74,14 @@ export default function App() {
           >
             Teams
           </button>
+          {ADMIN_ENABLED && (
+            <button
+              className={tab === "admin" ? "active" : ""}
+              onClick={() => setTab("admin")}
+            >
+              Admin
+            </button>
+          )}
         </nav>
       </header>
 
@@ -194,6 +207,10 @@ export default function App() {
         )}
 
         {status === "ready" && tab === "allocations" && <AllocationsView />}
+
+        {ADMIN_ENABLED && status === "ready" && tab === "admin" && (
+          <AdminForm matches={matches} onChanged={setMatches} />
+        )}
       </main>
 
       <footer className="app-footer">
