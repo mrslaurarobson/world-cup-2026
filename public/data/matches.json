@@ -1,1 +1,15 @@
-{}
+[
+  {
+    "id": "fx-2026-06-11-mexico-southafr",
+    "stage": "group",
+    "teamA": "Mexico",
+    "teamB": "South Africa",
+    "scoreA": 2,
+    "scoreB": 0,
+    "yellowA": 1,
+    "redA": 1,
+    "yellowB": 2,
+    "redB": 2,
+    "label": "Group A · Matchday 1"
+  }
+]
