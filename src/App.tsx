@@ -278,7 +278,13 @@ export default function App() {
           </div>
         )}
 
-        {tab === "fixtures" && <Fixtures />}
+        {tab === "fixtures" && (
+          <Fixtures
+            editable={ADMIN_ENABLED}
+            matches={matches}
+            onChanged={setMatches}
+          />
+        )}
 
         {status === "ready" && tab === "groups" && (
           <GroupTables matches={matches} />

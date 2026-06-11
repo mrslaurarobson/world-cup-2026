@@ -40,6 +40,12 @@ Open the **Admin** tab (it only appears when running locally), fill in the match
 match**. This writes straight to `public/data/matches.json`. You can also edit or
 delete previously recorded matches there.
 
+**Quicker still:** on the **Fixtures** tab (when running locally) just click any
+fixture to open an inline editor pre-filled with the two teams. Enter the score
+and cards, hit **Save result**, and the leaderboards and group tables update
+straight away. Recorded fixtures show the score and an **FT** marker. Like the
+Admin tab, this is local-only and never appears on the live site.
+
 The Admin tab is **local-only by design**: the API that writes the file exists
 only in the dev server, and the Admin UI is excluded from the production build,
 so it is never available on the live GitHub Pages site.

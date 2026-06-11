@@ -2,22 +2,21 @@ import { useEffect, useMemo, useState } from "react";
 import { allocations } from "../data/allocations";
 import { normalizeTeam } from "../data/teamNames";
 import { flagFor } from "../data/flags";
+import FixtureResultEditor from "./FixtureResultEditor";
+import { fixtureMatchId, teamsKnown, type Fixture } from "../lib/fixtureMatch";
+import type { Match } from "../types";
 
 const FIXTURES_URL = `${import.meta.env.BASE_URL}data/fixtures.json`;
 
-interface Fixture {
-  round: string;
-  date: string;
-  time: string;
-  team1: string;
-  team2: string;
-  group?: string;
-  ground: string;
-  num?: number;
-}
-
 interface FixtureFeed {
   matches: Fixture[];
+}
+
+interface Props {
+  // When true (local dev only), fixtures become clickable to record results.
+  editable?: boolean;
+  matches?: Match[];
+  onChanged?: (matches: Match[]) => void;
 }
 
 function owner(team: string): string | null {
@@ -68,11 +67,16 @@ function ukTime(d: Date): string {
   });
 }
 
-export default function Fixtures() {
+export default function Fixtures({
+  editable = false,
+  matches = [],
+  onChanged,
+}: Props) {
   const [fixtures, setFixtures] = useState<Fixture[]>([]);
   const [status, setStatus] = useState<"loading" | "ready" | "error">(
     "loading"
   );
+  const [openId, setOpenId] = useState<string | null>(null);
 
   useEffect(() => {
     fetch(`${FIXTURES_URL}?t=${Date.now()}`)
@@ -86,6 +90,13 @@ export default function Fixtures() {
       })
       .catch(() => setStatus("error"));
   }, []);
+
+  // Existing results keyed by their (deterministic) fixture match id.
+  const resultMap = useMemo(() => {
+    const map = new Map<string, Match>();
+    for (const m of matches) map.set(m.id, m);
+    return map;
+  }, [matches]);
 
   // Upcoming fixtures only, earliest first, grouped by UK calendar day.
   const days = useMemo(() => {
@@ -112,6 +123,28 @@ export default function Fixtures() {
     return groups;
   }, [fixtures]);
 
+  async function saveResult(match: Match) {
+    const res = await fetch("/api/matches", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(match),
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const updated: Match[] = await res.json();
+    onChanged?.(updated);
+  }
+
+  async function deleteResult(id: string) {
+    const res = await fetch("/api/matches", {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id }),
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const updated: Match[] = await res.json();
+    onChanged?.(updated);
+  }
+
   if (status === "loading") {
     return <p className="empty">Loading fixtures…</p>;
   }
@@ -134,61 +167,121 @@ export default function Fixtures() {
         <section key={day.key} className="fixture-day">
           <h3 className="fixture-date">{day.label}</h3>
           <div className="fixture-list">
-            {day.items.map(({ fixture: f, instant }, i) => {
+            {day.items.map(({ fixture: f, instant }) => {
               const ownerA = owner(f.team1);
               const ownerB = owner(f.team2);
               const flagA = flagFor(f.team1);
               const flagB = flagFor(f.team2);
+
+              const id = fixtureMatchId(f);
+              const result = resultMap.get(id);
+              const canEdit = editable && teamsKnown(f);
+              const isOpen = openId === id;
+
+              let aWin = false;
+              let bWin = false;
+              if (result) {
+                if (result.winner) {
+                  aWin = result.winner === result.teamA;
+                  bWin = result.winner === result.teamB;
+                } else {
+                  aWin = result.scoreA > result.scoreB;
+                  bWin = result.scoreB > result.scoreA;
+                }
+              }
+
               return (
-                <div key={`${day.key}-${i}`} className="fixture-row">
-                  <span className="fixture-time">{ukTime(instant)}</span>
-                  <div className="fixture-teams">
-                    <span className="fixture-team home">
-                      <span className="fixture-name">
-                        {flagA && (
-                          <img
-                            className="flag"
-                            src={flagA.src}
-                            srcSet={flagA.srcSet}
-                            alt=""
-                            width={20}
-                            height={15}
-                            loading="lazy"
-                          />
-                        )}
-                        {f.team1}
-                      </span>
-                      {ownerA && (
-                        <span className="fixture-owner">{ownerA}</span>
-                      )}
+                <div key={id} className="fixture-block">
+                  <div
+                    className={`fixture-row${canEdit ? " clickable" : ""}`}
+                    {...(canEdit
+                      ? {
+                          role: "button",
+                          tabIndex: 0,
+                          onClick: () => setOpenId(isOpen ? null : id),
+                          onKeyDown: (e: React.KeyboardEvent) => {
+                            if (e.key === "Enter" || e.key === " ") {
+                              e.preventDefault();
+                              setOpenId(isOpen ? null : id);
+                            }
+                          },
+                        }
+                      : {})}
+                  >
+                    <span className="fixture-time">
+                      {result ? "FT" : ukTime(instant)}
                     </span>
-                    <span className="fixture-v">v</span>
-                    <span className="fixture-team">
-                      <span className="fixture-name">
-                        {flagB && (
-                          <img
-                            className="flag"
-                            src={flagB.src}
-                            srcSet={flagB.srcSet}
-                            alt=""
-                            width={20}
-                            height={15}
-                            loading="lazy"
-                          />
+                    <div className="fixture-teams">
+                      <span className={`fixture-team home${aWin ? " win" : ""}`}>
+                        <span className="fixture-name">
+                          {flagA && (
+                            <img
+                              className="flag"
+                              src={flagA.src}
+                              srcSet={flagA.srcSet}
+                              alt=""
+                              width={20}
+                              height={15}
+                              loading="lazy"
+                            />
+                          )}
+                          {f.team1}
+                        </span>
+                        {ownerA && (
+                          <span className="fixture-owner">{ownerA}</span>
                         )}
-                        {f.team2}
                       </span>
-                      {ownerB && (
-                        <span className="fixture-owner">{ownerB}</span>
+                      {result ? (
+                        <span className="fixture-score">
+                          {result.scoreA}
+                          <span className="dash">–</span>
+                          {result.scoreB}
+                        </span>
+                      ) : (
+                        <span className="fixture-v">v</span>
+                      )}
+                      <span className={`fixture-team${bWin ? " win" : ""}`}>
+                        <span className="fixture-name">
+                          {flagB && (
+                            <img
+                              className="flag"
+                              src={flagB.src}
+                              srcSet={flagB.srcSet}
+                              alt=""
+                              width={20}
+                              height={15}
+                              loading="lazy"
+                            />
+                          )}
+                          {f.team2}
+                        </span>
+                        {ownerB && (
+                          <span className="fixture-owner">{ownerB}</span>
+                        )}
+                      </span>
+                    </div>
+                    <span className="fixture-meta">
+                      <span className="fixture-round">
+                        {f.group ?? f.round}
+                      </span>
+                      <span className="fixture-ground">{f.ground}</span>
+                      {canEdit && (
+                        <span className="fixture-edit-hint">
+                          {result ? "Click to edit result" : "Click to add result"}
+                        </span>
                       )}
                     </span>
                   </div>
-                  <span className="fixture-meta">
-                    <span className="fixture-round">
-                      {f.group ?? f.round}
-                    </span>
-                    <span className="fixture-ground">{f.ground}</span>
-                  </span>
+
+                  {isOpen && (
+                    <FixtureResultEditor
+                      fixture={f}
+                      existing={result}
+                      onSave={saveResult}
+                      onDelete={deleteResult}
+                      onClose={() => setOpenId(null)}
+                    />
+                  )}
                 </div>
               );
             })}
