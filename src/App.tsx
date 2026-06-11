@@ -2,6 +2,8 @@ import { useEffect, useMemo, useState } from "react";
 import PrizeCard from "./components/PrizeCard";
 import LeaderboardTable from "./components/LeaderboardTable";
 import MatchList from "./components/MatchList";
+import Fixtures from "./components/Fixtures";
+import GroupTables from "./components/GroupTables";
 import AllocationsView from "./components/AllocationsView";
 import AdminForm from "./components/AdminForm";
 import {
@@ -44,7 +46,13 @@ function groupTied<T extends { value: number; detail?: string }>(
   return groups;
 }
 
-type Tab = "prizes" | "matches" | "allocations" | "admin";
+type Tab =
+  | "prizes"
+  | "fixtures"
+  | "groups"
+  | "matches"
+  | "allocations"
+  | "admin";
 
 // The admin form is only available when running locally (npm run dev). It is
 // never included in the production build, so it cannot be used on the live site.
@@ -108,6 +116,18 @@ export default function App() {
             Prizes
           </button>
           <button
+            className={tab === "fixtures" ? "active" : ""}
+            onClick={() => setTab("fixtures")}
+          >
+            Fixtures
+          </button>
+          <button
+            className={tab === "groups" ? "active" : ""}
+            onClick={() => setTab("groups")}
+          >
+            Groups
+          </button>
+          <button
             className={tab === "matches" ? "active" : ""}
             onClick={() => setTab("matches")}
           >
@@ -131,8 +151,10 @@ export default function App() {
       </header>
 
       <main className="app-main">
-        {status === "loading" && <p className="empty">Loading match data…</p>}
-        {status === "error" && (
+        {tab !== "fixtures" && status === "loading" && (
+          <p className="empty">Loading match data…</p>
+        )}
+        {tab !== "fixtures" && status === "error" && (
           <p className="empty error">
             Could not load <code>data/matches.json</code>. Check the file
             exists and is valid JSON.
@@ -254,6 +276,12 @@ export default function App() {
               />
             </PrizeCard>
           </div>
+        )}
+
+        {tab === "fixtures" && <Fixtures />}
+
+        {status === "ready" && tab === "groups" && (
+          <GroupTables matches={matches} />
         )}
 
         {status === "ready" && tab === "matches" && (

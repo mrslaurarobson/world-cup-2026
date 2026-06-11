@@ -99,8 +99,11 @@ Upload the `dist/` folder to any static host (Netlify, Vercel, GitHub Pages, etc
 
 ```
 public/data/matches.json   the file you edit after every match
+public/data/fixtures.json   full schedule (from openfootball/worldcup.json)
+public/data/groups.json     group line-ups (from openfootball/worldcup.json)
 src/data/allocations.ts     team -> player mapping (pre-filled)
+src/data/teamNames.ts       feed-name -> allocation-name aliases
 src/lib/scoring.ts          all six prize calculations
 src/components/             UI components
-src/App.tsx                 layout + tabs (Prizes / Matches / Teams)
+src/App.tsx                 layout + tabs (Prizes / Fixtures / Groups / Matches / Teams)
 ```
