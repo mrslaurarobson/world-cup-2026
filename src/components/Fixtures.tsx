@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { allocations } from "../data/allocations";
 import { normalizeTeam } from "../data/teamNames";
+import { flagFor } from "../data/flags";
 
 const FIXTURES_URL = `${import.meta.env.BASE_URL}data/fixtures.json`;
 
@@ -136,19 +137,47 @@ export default function Fixtures() {
             {day.items.map(({ fixture: f, instant }, i) => {
               const ownerA = owner(f.team1);
               const ownerB = owner(f.team2);
+              const flagA = flagFor(f.team1);
+              const flagB = flagFor(f.team2);
               return (
                 <div key={`${day.key}-${i}`} className="fixture-row">
                   <span className="fixture-time">{ukTime(instant)}</span>
                   <div className="fixture-teams">
                     <span className="fixture-team home">
-                      {f.team1}
+                      <span className="fixture-name">
+                        {flagA && (
+                          <img
+                            className="flag"
+                            src={flagA.src}
+                            srcSet={flagA.srcSet}
+                            alt=""
+                            width={20}
+                            height={15}
+                            loading="lazy"
+                          />
+                        )}
+                        {f.team1}
+                      </span>
                       {ownerA && (
                         <span className="fixture-owner">{ownerA}</span>
                       )}
                     </span>
                     <span className="fixture-v">v</span>
                     <span className="fixture-team">
-                      {f.team2}
+                      <span className="fixture-name">
+                        {flagB && (
+                          <img
+                            className="flag"
+                            src={flagB.src}
+                            srcSet={flagB.srcSet}
+                            alt=""
+                            width={20}
+                            height={15}
+                            loading="lazy"
+                          />
+                        )}
+                        {f.team2}
+                      </span>
                       {ownerB && (
                         <span className="fixture-owner">{ownerB}</span>
                       )}

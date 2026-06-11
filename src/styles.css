@@ -427,6 +427,29 @@ body {
   align-items: flex-end;
 }
 
+.fixture-team.home .fixture-name {
+  align-items: flex-end;
+}
+
+.fixture-team.away .fixture-name {
+  align-items: flex-start;
+}
+
+.fixture-name {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.flag {
+  width: 20px;
+  height: 15px;
+  border-radius: 2px;
+  object-fit: cover;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3);
+}
+
 .fixture-owner {
   color: var(--muted);
   font-size: 0.72rem;
