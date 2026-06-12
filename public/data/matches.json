@@ -11,5 +11,18 @@
     "yellowB": 2,
     "redB": 2,
     "label": "Group A · Matchday 1"
+  },
+  {
+    "id": "fx-2026-06-11-korearep-czechia",
+    "stage": "group",
+    "teamA": "Korea Republic",
+    "teamB": "Czechia",
+    "scoreA": 2,
+    "scoreB": 1,
+    "yellowA": 1,
+    "redA": 0,
+    "yellowB": 0,
+    "redB": 0,
+    "label": "Group A · Matchday 1"
   }
 ]
