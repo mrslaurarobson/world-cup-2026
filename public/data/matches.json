@@ -24,5 +24,44 @@
     "yellowB": 0,
     "redB": 0,
     "label": "Group A · Matchday 1"
+  },
+  {
+    "id": "fx-2026-06-12-canada-bosniaan",
+    "stage": "group",
+    "teamA": "Canada",
+    "teamB": "Bosnia and Herzegovina",
+    "scoreA": 1,
+    "scoreB": 1,
+    "yellowA": 2,
+    "redA": 0,
+    "yellowB": 3,
+    "redB": 0,
+    "label": "Group B · Matchday 2"
+  },
+  {
+    "id": "fx-2026-06-12-usa-paraguay",
+    "stage": "group",
+    "teamA": "USA",
+    "teamB": "Paraguay",
+    "scoreA": 4,
+    "scoreB": 1,
+    "yellowA": 1,
+    "redA": 0,
+    "yellowB": 5,
+    "redB": 0,
+    "label": "Group D · Matchday 2"
+  },
+  {
+    "id": "fx-2026-06-13-qatar-switzerl",
+    "stage": "group",
+    "teamA": "Qatar",
+    "teamB": "Switzerland",
+    "scoreA": 1,
+    "scoreB": 1,
+    "yellowA": 2,
+    "redA": 0,
+    "yellowB": 1,
+    "redB": 0,
+    "label": "Group B · Matchday 3"
   }
 ]

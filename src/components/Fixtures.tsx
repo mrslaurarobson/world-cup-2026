@@ -98,12 +98,12 @@ export default function Fixtures({
     return map;
   }, [matches]);
 
-  // Upcoming fixtures only, earliest first, grouped by UK calendar day.
+  // Fixtures still awaiting a result, earliest first, grouped by UK calendar
+  // day. A fixture stays in the list until its result has been recorded.
   const days = useMemo(() => {
-    const todayKey = ukDateKey(new Date());
-    const upcoming = fixtures
+    const pending = fixtures
       .map((f) => ({ fixture: f, instant: toInstant(f.date, f.time) }))
-      .filter((x) => ukDateKey(x.instant) >= todayKey)
+      .filter((x) => !resultMap.has(fixtureMatchId(x.fixture)))
       .sort((a, b) => a.instant.getTime() - b.instant.getTime());
 
     const groups: {
@@ -111,7 +111,7 @@ export default function Fixtures({
       label: string;
       items: { fixture: Fixture; instant: Date }[];
     }[] = [];
-    for (const x of upcoming) {
+    for (const x of pending) {
       const key = ukDateKey(x.instant);
       const last = groups[groups.length - 1];
       if (last && last.key === key) {
@@ -121,7 +121,7 @@ export default function Fixtures({
       }
     }
     return groups;
-  }, [fixtures]);
+  }, [fixtures, resultMap]);
 
   async function saveResult(match: Match) {
     const res = await fetch("/api/matches", {
@@ -158,7 +158,9 @@ export default function Fixtures({
   }
 
   if (days.length === 0) {
-    return <p className="empty">No upcoming fixtures — the tournament is over!</p>;
+    return (
+      <p className="empty">Every fixture has a result recorded — nothing left to play!</p>
+    );
   }
 
   return (
