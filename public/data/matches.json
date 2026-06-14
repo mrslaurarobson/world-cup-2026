@@ -102,5 +102,18 @@
     "yellowB": 1,
     "redB": 0,
     "label": "Group D · Matchday 3"
+  },
+  {
+    "id": "fx-2026-06-14-germany-curaao",
+    "stage": "group",
+    "teamA": "Germany",
+    "teamB": "Curaçao",
+    "scoreA": 7,
+    "scoreB": 1,
+    "yellowA": 0,
+    "redA": 0,
+    "yellowB": 0,
+    "redB": 0,
+    "label": "Group E · Matchday 4"
   }
 ]
