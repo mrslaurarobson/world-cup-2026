@@ -115,5 +115,44 @@
     "yellowB": 0,
     "redB": 0,
     "label": "Group E · Matchday 4"
+  },
+  {
+    "id": "fx-2026-06-14-netherla-japan",
+    "stage": "group",
+    "teamA": "Netherlands",
+    "teamB": "Japan",
+    "scoreA": 2,
+    "scoreB": 2,
+    "yellowA": 3,
+    "redA": 0,
+    "yellowB": 0,
+    "redB": 0,
+    "label": "Group F · Matchday 4"
+  },
+  {
+    "id": "fx-2026-06-14-ctedivoi-ecuador",
+    "stage": "group",
+    "teamA": "Côte d'Ivoire",
+    "teamB": "Ecuador",
+    "scoreA": 1,
+    "scoreB": 0,
+    "yellowA": 3,
+    "redA": 0,
+    "yellowB": 1,
+    "redB": 0,
+    "label": "Group E · Matchday 4"
+  },
+  {
+    "id": "fx-2026-06-14-sweden-tunisia",
+    "stage": "group",
+    "teamA": "Sweden",
+    "teamB": "Tunisia",
+    "scoreA": 5,
+    "scoreB": 1,
+    "yellowA": 0,
+    "redA": 0,
+    "yellowB": 1,
+    "redB": 0,
+    "label": "Group F · Matchday 4"
   }
 ]
