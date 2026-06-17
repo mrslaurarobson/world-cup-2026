@@ -245,5 +245,18 @@
     "yellowB": 0,
     "redB": 0,
     "label": "Group J · Matchday 6"
+  },
+  {
+    "id": "fx-2026-06-16-austria-jordan",
+    "stage": "group",
+    "teamA": "Austria",
+    "teamB": "Jordan",
+    "scoreA": 3,
+    "scoreB": 1,
+    "yellowA": 1,
+    "redA": 0,
+    "yellowB": 0,
+    "redB": 0,
+    "label": "Group J · Matchday 6"
   }
 ]
