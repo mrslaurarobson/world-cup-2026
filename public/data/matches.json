@@ -258,5 +258,57 @@
     "yellowB": 0,
     "redB": 0,
     "label": "Group J · Matchday 6"
+  },
+  {
+    "id": "fx-2026-06-17-portugal-congodr",
+    "stage": "group",
+    "teamA": "Portugal",
+    "teamB": "Congo DR",
+    "scoreA": 1,
+    "scoreB": 1,
+    "yellowA": 3,
+    "redA": 0,
+    "yellowB": 1,
+    "redB": 0,
+    "label": "Group K · Matchday 7"
+  },
+  {
+    "id": "fx-2026-06-17-england-croatia",
+    "stage": "group",
+    "teamA": "England",
+    "teamB": "Croatia",
+    "scoreA": 4,
+    "scoreB": 2,
+    "yellowA": 0,
+    "redA": 0,
+    "yellowB": 0,
+    "redB": 0,
+    "label": "Group L · Matchday 7"
+  },
+  {
+    "id": "fx-2026-06-17-ghana-panama",
+    "stage": "group",
+    "teamA": "Ghana",
+    "teamB": "Panama",
+    "scoreA": 1,
+    "scoreB": 0,
+    "yellowA": 1,
+    "redA": 0,
+    "yellowB": 2,
+    "redB": 0,
+    "label": "Group L · Matchday 7"
+  },
+  {
+    "id": "fx-2026-06-17-uzbekist-colombia",
+    "stage": "group",
+    "teamA": "Uzbekistan",
+    "teamB": "Colombia",
+    "scoreA": 1,
+    "scoreB": 3,
+    "yellowA": 1,
+    "redA": 0,
+    "yellowB": 1,
+    "redB": 0,
+    "label": "Group K · Matchday 7"
   }
 ]
