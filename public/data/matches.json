@@ -310,5 +310,57 @@
     "yellowB": 1,
     "redB": 0,
     "label": "Group K · Matchday 7"
+  },
+  {
+    "id": "fx-2026-06-18-czechia-southafr",
+    "stage": "group",
+    "teamA": "Czechia",
+    "teamB": "South Africa",
+    "scoreA": 1,
+    "scoreB": 1,
+    "yellowA": 1,
+    "redA": 0,
+    "yellowB": 2,
+    "redB": 0,
+    "label": "Group A · Matchday 8"
+  },
+  {
+    "id": "fx-2026-06-18-switzerl-bosniaan",
+    "stage": "group",
+    "teamA": "Switzerland",
+    "teamB": "Bosnia and Herzegovina",
+    "scoreA": 4,
+    "scoreB": 1,
+    "yellowA": 1,
+    "redA": 0,
+    "yellowB": 2,
+    "redB": 1,
+    "label": "Group B · Matchday 8"
+  },
+  {
+    "id": "fx-2026-06-18-canada-qatar",
+    "stage": "group",
+    "teamA": "Canada",
+    "teamB": "Qatar",
+    "scoreA": 6,
+    "scoreB": 0,
+    "yellowA": 1,
+    "redA": 0,
+    "yellowB": 1,
+    "redB": 2,
+    "label": "Group B · Matchday 8"
+  },
+  {
+    "id": "fx-2026-06-18-mexico-korearep",
+    "stage": "group",
+    "teamA": "Mexico",
+    "teamB": "Korea Republic",
+    "scoreA": 1,
+    "scoreB": 0,
+    "yellowA": 0,
+    "redA": 0,
+    "yellowB": 2,
+    "redB": 0,
+    "label": "Group A · Matchday 8"
   }
 ]
