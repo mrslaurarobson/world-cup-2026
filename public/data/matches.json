@@ -518,5 +518,70 @@
     "yellowB": 1,
     "redB": 0,
     "label": "Group G · Matchday 11"
+  },
+  {
+    "id": "fx-2026-06-22-argentin-austria",
+    "stage": "group",
+    "teamA": "Argentina",
+    "teamB": "Austria",
+    "scoreA": 2,
+    "scoreB": 0,
+    "yellowA": 2,
+    "redA": 0,
+    "yellowB": 2,
+    "redB": 0,
+    "label": "Group J · Matchday 12"
+  },
+  {
+    "id": "fx-2026-06-22-france-iraq",
+    "stage": "group",
+    "teamA": "France",
+    "teamB": "Iraq",
+    "scoreA": 3,
+    "scoreB": 0,
+    "yellowA": 0,
+    "redA": 0,
+    "yellowB": 1,
+    "redB": 0,
+    "label": "Group I · Matchday 12"
+  },
+  {
+    "id": "fx-2026-06-22-norway-senegal",
+    "stage": "group",
+    "teamA": "Norway",
+    "teamB": "Senegal",
+    "scoreA": 3,
+    "scoreB": 2,
+    "yellowA": 0,
+    "redA": 0,
+    "yellowB": 0,
+    "redB": 0,
+    "label": "Group I · Matchday 12"
+  },
+  {
+    "id": "fx-2026-06-22-jordan-algeria",
+    "stage": "group",
+    "teamA": "Jordan",
+    "teamB": "Algeria",
+    "scoreA": 1,
+    "scoreB": 2,
+    "yellowA": 1,
+    "redA": 0,
+    "yellowB": 1,
+    "redB": 0,
+    "label": "Group J · Matchday 12"
+  },
+  {
+    "id": "fx-2026-06-23-portugal-uzbekist",
+    "stage": "group",
+    "teamA": "Portugal",
+    "teamB": "Uzbekistan",
+    "scoreA": 5,
+    "scoreB": 0,
+    "yellowA": 1,
+    "redA": 0,
+    "yellowB": 1,
+    "redB": 0,
+    "label": "Group K · Matchday 13"
   }
 ]
