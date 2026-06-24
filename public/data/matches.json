@@ -583,5 +583,44 @@
     "yellowB": 1,
     "redB": 0,
     "label": "Group K · Matchday 13"
+  },
+  {
+    "id": "fx-2026-06-23-england-ghana",
+    "stage": "group",
+    "teamA": "England",
+    "teamB": "Ghana",
+    "scoreA": 0,
+    "scoreB": 0,
+    "yellowA": 1,
+    "redA": 0,
+    "yellowB": 1,
+    "redB": 0,
+    "label": "Group L · Matchday 13"
+  },
+  {
+    "id": "fx-2026-06-23-panama-croatia",
+    "stage": "group",
+    "teamA": "Panama",
+    "teamB": "Croatia",
+    "scoreA": 0,
+    "scoreB": 1,
+    "yellowA": 1,
+    "redA": 0,
+    "yellowB": 1,
+    "redB": 0,
+    "label": "Group L · Matchday 13"
+  },
+  {
+    "id": "fx-2026-06-23-colombia-congodr",
+    "stage": "group",
+    "teamA": "Colombia",
+    "teamB": "Congo DR",
+    "scoreA": 1,
+    "scoreB": 0,
+    "yellowA": 2,
+    "redA": 0,
+    "yellowB": 1,
+    "redB": 0,
+    "label": "Group K · Matchday 13"
   }
 ]
