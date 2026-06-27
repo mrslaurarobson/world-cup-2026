@@ -778,5 +778,83 @@
     "yellowB": 1,
     "redB": 0,
     "label": "Group D · Matchday 15"
+  },
+  {
+    "id": "fx-2026-06-26-norway-france",
+    "stage": "group",
+    "teamA": "Norway",
+    "teamB": "France",
+    "scoreA": 1,
+    "scoreB": 4,
+    "yellowA": 1,
+    "redA": 0,
+    "yellowB": 1,
+    "redB": 0,
+    "label": "Group I · Matchday 16"
+  },
+  {
+    "id": "fx-2026-06-26-senegal-iraq",
+    "stage": "group",
+    "teamA": "Senegal",
+    "teamB": "Iraq",
+    "scoreA": 5,
+    "scoreB": 0,
+    "yellowA": 2,
+    "redA": 0,
+    "yellowB": 2,
+    "redB": 1,
+    "label": "Group I · Matchday 16"
+  },
+  {
+    "id": "fx-2026-06-26-caboverd-saudiara",
+    "stage": "group",
+    "teamA": "Cabo Verde",
+    "teamB": "Saudi Arabia",
+    "scoreA": 0,
+    "scoreB": 0,
+    "yellowA": 1,
+    "redA": 0,
+    "yellowB": 3,
+    "redB": 0,
+    "label": "Group H · Matchday 16"
+  },
+  {
+    "id": "fx-2026-06-26-uruguay-spain",
+    "stage": "group",
+    "teamA": "Uruguay",
+    "teamB": "Spain",
+    "scoreA": 0,
+    "scoreB": 1,
+    "yellowA": 3,
+    "redA": 1,
+    "yellowB": 1,
+    "redB": 0,
+    "label": "Group H · Matchday 16"
+  },
+  {
+    "id": "fx-2026-06-26-egypt-iran",
+    "stage": "group",
+    "teamA": "Egypt",
+    "teamB": "Iran",
+    "scoreA": 1,
+    "scoreB": 1,
+    "yellowA": 3,
+    "redA": 0,
+    "yellowB": 4,
+    "redB": 0,
+    "label": "Group G · Matchday 16"
+  },
+  {
+    "id": "fx-2026-06-26-newzeala-belgium",
+    "stage": "group",
+    "teamA": "New Zealand",
+    "teamB": "Belgium",
+    "scoreA": 1,
+    "scoreB": 5,
+    "yellowA": 2,
+    "redA": 0,
+    "yellowB": 0,
+    "redB": 0,
+    "label": "Group G · Matchday 16"
   }
 ]
