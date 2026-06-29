@@ -856,5 +856,83 @@
     "yellowB": 0,
     "redB": 0,
     "label": "Group G · Matchday 16"
+  },
+  {
+    "id": "fx-2026-06-27-panama-england",
+    "stage": "group",
+    "teamA": "Panama",
+    "teamB": "England",
+    "scoreA": 0,
+    "scoreB": 2,
+    "yellowA": 2,
+    "redA": 0,
+    "yellowB": 1,
+    "redB": 0,
+    "label": "Group L · Matchday 17"
+  },
+  {
+    "id": "fx-2026-06-27-croatia-ghana",
+    "stage": "group",
+    "teamA": "Croatia",
+    "teamB": "Ghana",
+    "scoreA": 2,
+    "scoreB": 1,
+    "yellowA": 1,
+    "redA": 0,
+    "yellowB": 1,
+    "redB": 0,
+    "label": "Group L · Matchday 17"
+  },
+  {
+    "id": "fx-2026-06-27-colombia-portugal",
+    "stage": "group",
+    "teamA": "Colombia",
+    "teamB": "Portugal",
+    "scoreA": 0,
+    "scoreB": 0,
+    "yellowA": 1,
+    "redA": 0,
+    "yellowB": 0,
+    "redB": 0,
+    "label": "Group K · Matchday 17"
+  },
+  {
+    "id": "fx-2026-06-27-congodr-uzbekist",
+    "stage": "group",
+    "teamA": "Congo DR",
+    "teamB": "Uzbekistan",
+    "scoreA": 3,
+    "scoreB": 1,
+    "yellowA": 3,
+    "redA": 0,
+    "yellowB": 2,
+    "redB": 0,
+    "label": "Group K · Matchday 17"
+  },
+  {
+    "id": "fx-2026-06-27-algeria-austria",
+    "stage": "group",
+    "teamA": "Algeria",
+    "teamB": "Austria",
+    "scoreA": 3,
+    "scoreB": 3,
+    "yellowA": 0,
+    "redA": 0,
+    "yellowB": 1,
+    "redB": 0,
+    "label": "Group J · Matchday 17"
+  },
+  {
+    "id": "fx-2026-06-27-jordan-argentin",
+    "stage": "group",
+    "teamA": "Jordan",
+    "teamB": "Argentina",
+    "scoreA": 1,
+    "scoreB": 3,
+    "yellowA": 3,
+    "redA": 0,
+    "yellowB": 0,
+    "redB": 0,
+    "label": "Group J · Matchday 17"
   }
 ]
