@@ -934,5 +934,18 @@
     "yellowB": 0,
     "redB": 0,
     "label": "Group J · Matchday 17"
+  },
+  {
+    "id": "fx-2026-06-28-southafr-canada",
+    "stage": "r32",
+    "teamA": "South Africa",
+    "teamB": "Canada",
+    "scoreA": 0,
+    "scoreB": 1,
+    "yellowA": 0,
+    "redA": 0,
+    "yellowB": 2,
+    "redB": 0,
+    "label": "Round of 32"
   }
 ]
