@@ -947,5 +947,46 @@
     "yellowB": 2,
     "redB": 0,
     "label": "Round of 32"
+  },
+  {
+    "id": "fx-2026-06-29-brazil-japan",
+    "stage": "r32",
+    "teamA": "Brazil",
+    "teamB": "Japan",
+    "scoreA": 2,
+    "scoreB": 1,
+    "yellowA": 2,
+    "redA": 0,
+    "yellowB": 3,
+    "redB": 0,
+    "label": "Round of 32"
+  },
+  {
+    "id": "fx-2026-06-29-germany-paraguay",
+    "stage": "r32",
+    "teamA": "Germany",
+    "teamB": "Paraguay",
+    "scoreA": 1,
+    "scoreB": 1,
+    "yellowA": 2,
+    "redA": 0,
+    "yellowB": 2,
+    "redB": 0,
+    "label": "Round of 32",
+    "winner": "Paraguay"
+  },
+  {
+    "id": "fx-2026-06-29-netherla-morocco",
+    "stage": "r32",
+    "teamA": "Netherlands",
+    "teamB": "Morocco",
+    "scoreA": 1,
+    "scoreB": 1,
+    "yellowA": 0,
+    "redA": 0,
+    "yellowB": 1,
+    "redB": 0,
+    "label": "Round of 32",
+    "winner": "Morocco"
   }
 ]
