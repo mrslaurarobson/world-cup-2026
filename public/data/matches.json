@@ -988,5 +988,44 @@
     "redB": 0,
     "label": "Round of 32",
     "winner": "Morocco"
+  },
+  {
+    "id": "fx-2026-06-30-ctedivoi-norway",
+    "stage": "r32",
+    "teamA": "Côte d'Ivoire",
+    "teamB": "Norway",
+    "scoreA": 1,
+    "scoreB": 2,
+    "yellowA": 0,
+    "redA": 0,
+    "yellowB": 1,
+    "redB": 0,
+    "label": "Round of 32"
+  },
+  {
+    "id": "fx-2026-06-30-france-sweden",
+    "stage": "r32",
+    "teamA": "France",
+    "teamB": "Sweden",
+    "scoreA": 3,
+    "scoreB": 0,
+    "yellowA": 0,
+    "redA": 0,
+    "yellowB": 0,
+    "redB": 0,
+    "label": "Round of 32"
+  },
+  {
+    "id": "fx-2026-06-30-mexico-ecuador",
+    "stage": "r32",
+    "teamA": "Mexico",
+    "teamB": "Ecuador",
+    "scoreA": 2,
+    "scoreB": 0,
+    "yellowA": 0,
+    "redA": 0,
+    "yellowB": 3,
+    "redB": 1,
+    "label": "Round of 32"
   }
 ]
