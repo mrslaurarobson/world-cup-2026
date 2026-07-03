@@ -2242,6 +2242,26 @@
       "time": "12:00 UTC-4",
       "team1": "England",
       "team2": "DR Congo",
+      "score": {
+        "ft": [2, 1],
+        "ht": [0, 1]
+      },
+      "goals1": [
+        {
+          "name": "Harry Kane",
+          "minute": "75"
+        },
+        {
+          "name": "Harry Kane",
+          "minute": "86"
+        }
+      ],
+      "goals2": [
+        {
+          "name": "Brian Cipenga",
+          "minute": "7"
+        }
+      ],
       "ground": "Atlanta"
     },
     {
@@ -2251,6 +2271,21 @@
       "time": "17:00 UTC-7",
       "team1": "USA",
       "team2": "Bosnia & Herzegovina",
+      "score": {
+        "ft": [2, 0],
+        "ht": [1, 0]
+      },
+      "goals1": [
+        {
+          "name": "Folarin Balogun",
+          "minute": "45"
+        },
+        {
+          "name": "Malik Tillman",
+          "minute": "82"
+        }
+      ],
+      "goals2": [],
       "ground": "San Francisco Bay Area (Santa Clara)"
     },
     {
@@ -2260,6 +2295,36 @@
       "time": "13:00 UTC-7",
       "team1": "Belgium",
       "team2": "Senegal",
+      "score": {
+        "et": [3, 2],
+        "ft": [2, 2],
+        "ht": [0, 1]
+      },
+      "goals1": [
+        {
+          "name": "Romelu Lukaku",
+          "minute": "86"
+        },
+        {
+          "name": "Youri Tielemans",
+          "minute": "89"
+        },
+        {
+          "name": "Youri Tielemans",
+          "minute": "120+5",
+          "penalty": true
+        }
+      ],
+      "goals2": [
+        {
+          "name": "Habib Diarra",
+          "minute": "25"
+        },
+        {
+          "name": "Ismaïla Sarr",
+          "minute": "51"
+        }
+      ],
       "ground": "Seattle"
     },
     {
@@ -2269,6 +2334,27 @@
       "time": "19:00 UTC-4",
       "team1": "Portugal",
       "team2": "Croatia",
+      "score": {
+        "ft": [2, 1],
+        "ht": [0, 0]
+      },
+      "goals1": [
+        {
+          "name": "Cristiano Ronaldo",
+          "minute": "68",
+          "penalty": true
+        },
+        {
+          "name": "Gonçalo Ramos",
+          "minute": "90+4"
+        }
+      ],
+      "goals2": [
+        {
+          "name": "Ivan Perisic",
+          "minute": "53"
+        }
+      ],
       "ground": "Toronto"
     },
     {
@@ -2278,6 +2364,25 @@
       "time": "12:00 UTC-7",
       "team1": "Spain",
       "team2": "Austria",
+      "score": {
+        "ft": [3, 0],
+        "ht": [1, 0]
+      },
+      "goals1": [
+        {
+          "name": "Mikel Oyarzabal",
+          "minute": "36"
+        },
+        {
+          "name": "Pedro Porro",
+          "minute": "66"
+        },
+        {
+          "name": "Mikel Oyarzabal",
+          "minute": "89"
+        }
+      ],
+      "goals2": [],
       "ground": "Los Angeles (Inglewood)"
     },
     {
@@ -2287,6 +2392,21 @@
       "time": "20:00 UTC-7",
       "team1": "Switzerland",
       "team2": "Algeria",
+      "score": {
+        "ft": [2, 0],
+        "ht": [1, 0]
+      },
+      "goals1": [
+        {
+          "name": "Breel Embolo",
+          "minute": "10"
+        },
+        {
+          "name": "Dan Ndoye",
+          "minute": "46"
+        }
+      ],
+      "goals2": [],
       "ground": "Vancouver"
     },
     {
@@ -2348,8 +2468,8 @@
       "num": 92,
       "date": "2026-07-05",
       "time": "18:00 UTC-6",
-      "team1": "W79",
-      "team2": "W80",
+      "team1": "Mexico",
+      "team2": "England",
       "ground": "Mexico City"
     },
     {
@@ -2366,8 +2486,8 @@
       "num": 94,
       "date": "2026-07-06",
       "time": "17:00 UTC-7",
-      "team1": "W81",
-      "team2": "W82",
+      "team1": "USA",
+      "team2": "Belgium",
       "ground": "Seattle"
     },
     {

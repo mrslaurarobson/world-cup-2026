@@ -1027,5 +1027,83 @@
     "yellowB": 3,
     "redB": 1,
     "label": "Round of 32"
+  },
+  {
+    "id": "fx-2026-07-01-england-congodr",
+    "stage": "r32",
+    "teamA": "England",
+    "teamB": "Congo DR",
+    "scoreA": 2,
+    "scoreB": 1,
+    "yellowA": 1,
+    "redA": 0,
+    "yellowB": 1,
+    "redB": 0,
+    "label": "Round of 32"
+  },
+  {
+    "id": "fx-2026-07-01-belgium-senegal",
+    "stage": "r32",
+    "teamA": "Belgium",
+    "teamB": "Senegal",
+    "scoreA": 3,
+    "scoreB": 2,
+    "yellowA": 1,
+    "redA": 0,
+    "yellowB": 1,
+    "redB": 0,
+    "label": "Round of 32"
+  },
+  {
+    "id": "fx-2026-07-01-usa-bosniaan",
+    "stage": "r32",
+    "teamA": "USA",
+    "teamB": "Bosnia and Herzegovina",
+    "scoreA": 2,
+    "scoreB": 0,
+    "yellowA": 0,
+    "redA": 1,
+    "yellowB": 1,
+    "redB": 0,
+    "label": "Round of 32"
+  },
+  {
+    "id": "fx-2026-07-02-spain-austria",
+    "stage": "r32",
+    "teamA": "Spain",
+    "teamB": "Austria",
+    "scoreA": 3,
+    "scoreB": 0,
+    "yellowA": 0,
+    "redA": 0,
+    "yellowB": 1,
+    "redB": 0,
+    "label": "Round of 32"
+  },
+  {
+    "id": "fx-2026-07-02-portugal-croatia",
+    "stage": "r32",
+    "teamA": "Portugal",
+    "teamB": "Croatia",
+    "scoreA": 2,
+    "scoreB": 1,
+    "yellowA": 1,
+    "redA": 0,
+    "yellowB": 2,
+    "redB": 0,
+    "label": "Round of 32"
+  },
+  {
+    "id": "fx-2026-07-02-switzerl-algeria",
+    "stage": "r32",
+    "teamA": "Switzerland",
+    "teamB": "Algeria",
+    "scoreA": 2,
+    "scoreB": 0,
+    "yellowA": 0,
+    "redA": 0,
+    "yellowB": 2,
+    "redB": 0,
+    "label": "Round of 32"
   }
 ]
