@@ -1105,5 +1105,58 @@
     "yellowB": 2,
     "redB": 0,
     "label": "Round of 32"
+  },
+  {
+    "id": "fx-2026-07-03-australi-egypt",
+    "stage": "r32",
+    "teamA": "Australia",
+    "teamB": "Egypt",
+    "scoreA": 1,
+    "scoreB": 1,
+    "yellowA": 0,
+    "redA": 0,
+    "yellowB": 2,
+    "redB": 0,
+    "label": "Round of 32",
+    "winner": "Egypt"
+  },
+  {
+    "id": "fx-2026-07-03-argentin-caboverd",
+    "stage": "r32",
+    "teamA": "Argentina",
+    "teamB": "Cabo Verde",
+    "scoreA": 3,
+    "scoreB": 2,
+    "yellowA": 1,
+    "redA": 0,
+    "yellowB": 1,
+    "redB": 0,
+    "label": "Round of 32"
+  },
+  {
+    "id": "fx-2026-07-03-colombia-ghana",
+    "stage": "r32",
+    "teamA": "Colombia",
+    "teamB": "Ghana",
+    "scoreA": 1,
+    "scoreB": 0,
+    "yellowA": 2,
+    "redA": 0,
+    "yellowB": 3,
+    "redB": 0,
+    "label": "Round of 32"
+  },
+  {
+    "id": "fx-2026-07-04-canada-morocco",
+    "stage": "r16",
+    "teamA": "Canada",
+    "teamB": "Morocco",
+    "scoreA": 0,
+    "scoreB": 3,
+    "yellowA": 4,
+    "redA": 0,
+    "yellowB": 4,
+    "redB": 0,
+    "label": "Round of 16"
   }
 ]
