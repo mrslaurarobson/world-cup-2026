@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 
 interface Row {
   key: string;
-  primary: string; // main label (player or team)
-  secondary?: string; // sub label (e.g. owner, tie-break detail)
+  primary: ReactNode; // main label (player or team)
+  secondary?: ReactNode; // sub label (e.g. owner, tie-break detail)
   value: string; // formatted metric
   // Optional key used to decide joint leaders. Defaults to `value`. Set this
   // to include tie-breakers so only truly-tied rows are highlighted together.
