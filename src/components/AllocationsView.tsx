@@ -1,4 +1,5 @@
 import { players, teamsForPlayer } from "../data/allocations";
+import { TeamLink } from "./TeamLink";
 
 export default function AllocationsView() {
   // Players with more teams first, then alphabetical.
@@ -14,7 +15,9 @@ export default function AllocationsView() {
           <h3>{player}</h3>
           <ul>
             {teamsForPlayer(player).map((team) => (
-              <li key={team}>{team}</li>
+              <li key={team}>
+                <TeamLink team={team} />
+              </li>
             ))}
           </ul>
         </div>

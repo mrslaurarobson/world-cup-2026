@@ -6,6 +6,8 @@ import Fixtures from "./components/Fixtures";
 import GroupTables from "./components/GroupTables";
 import AllocationsView from "./components/AllocationsView";
 import AdminForm from "./components/AdminForm";
+import TeamPage from "./components/TeamPage";
+import { TeamSelectProvider } from "./components/TeamLink";
 import {
   biggestHammering,
   buildTeamStats,
@@ -66,6 +68,19 @@ export default function App() {
     "loading"
   );
   const [tab, setTab] = useState<Tab>("prizes");
+  // When set, the Team detail page is shown in place of the active tab.
+  const [selectedTeam, setSelectedTeam] = useState<string | null>(null);
+
+  // Switching tabs always closes any open Team page.
+  function selectTab(next: Tab) {
+    setSelectedTeam(null);
+    setTab(next);
+  }
+
+  function selectTeam(team: string) {
+    setSelectedTeam(team);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
 
   useEffect(() => {
     // Cache-busting query so a redeployed JSON is picked up on refresh.
@@ -102,55 +117,70 @@ export default function App() {
   };
 
   return (
-    <div className="app">
-      <header className="app-header">
-        <h1>
-          <span aria-hidden="true">🏆</span> World Cup 2026 Sweepstake
-        </h1>
-        <p className="subtitle">18 players · 48 teams · £180 prize pot</p>
-        <nav className="tabs">
-          <button
-            className={tab === "prizes" ? "active" : ""}
-            onClick={() => setTab("prizes")}
-          >
-            Prizes
-          </button>
-          <button
-            className={tab === "fixtures" ? "active" : ""}
-            onClick={() => setTab("fixtures")}
-          >
-            Fixtures
-          </button>
-          <button
-            className={tab === "groups" ? "active" : ""}
-            onClick={() => setTab("groups")}
-          >
-            Groups
-          </button>
-          <button
-            className={tab === "matches" ? "active" : ""}
-            onClick={() => setTab("matches")}
-          >
-            Matches
-          </button>
-          <button
-            className={tab === "allocations" ? "active" : ""}
-            onClick={() => setTab("allocations")}
-          >
-            Teams
-          </button>
-          {ADMIN_ENABLED && (
+    <TeamSelectProvider onSelect={selectTeam}>
+      <div className="app">
+        <header className="app-header">
+          <h1>
+            <span aria-hidden="true">🏆</span> World Cup 2026 Sweepstake
+          </h1>
+          <p className="subtitle">18 players · 48 teams · £180 prize pot</p>
+          <nav className="tabs">
             <button
-              className={tab === "admin" ? "active" : ""}
-              onClick={() => setTab("admin")}
+              className={tab === "prizes" && !selectedTeam ? "active" : ""}
+              onClick={() => selectTab("prizes")}
             >
-              Admin
+              Prizes
             </button>
-          )}
-        </nav>
-      </header>
+            <button
+              className={tab === "fixtures" && !selectedTeam ? "active" : ""}
+              onClick={() => selectTab("fixtures")}
+            >
+              Fixtures
+            </button>
+            <button
+              className={tab === "groups" && !selectedTeam ? "active" : ""}
+              onClick={() => selectTab("groups")}
+            >
+              Groups
+            </button>
+            <button
+              className={tab === "matches" && !selectedTeam ? "active" : ""}
+              onClick={() => selectTab("matches")}
+            >
+              Matches
+            </button>
+            <button
+              className={tab === "allocations" && !selectedTeam ? "active" : ""}
+              onClick={() => selectTab("allocations")}
+            >
+              Teams
+            </button>
+            {ADMIN_ENABLED && (
+              <button
+                className={tab === "admin" && !selectedTeam ? "active" : ""}
+                onClick={() => selectTab("admin")}
+              >
+                Admin
+              </button>
+            )}
+          </nav>
+        </header>
 
-      <main className="app-main">
+        <main className="app-main">
+        {selectedTeam ? (
+          status === "ready" ? (
+            <TeamPage
+              team={selectedTeam}
+              matches={matches}
+              onBack={() => setSelectedTeam(null)}
+            />
+          ) : status === "loading" ? (
+            <p className="empty">Loading match data…</p>
+          ) : (
+            <p className="empty error">Could not load match data.</p>
+          )
+        ) : (
+        <>
         {tab !== "fixtures" && status === "loading" && (
           <p className="empty">Loading match data…</p>
         )}
@@ -299,14 +329,17 @@ export default function App() {
         {ADMIN_ENABLED && status === "ready" && tab === "admin" && (
           <AdminForm matches={matches} onChanged={setMatches} />
         )}
-      </main>
+        </>
+        )}
+        </main>
 
-      <footer className="app-footer">
-        <p>
-          Update results by editing <code>public/data/matches.json</code>, then
-          redeploy. Leaderboards recalculate automatically.
-        </p>
-      </footer>
-    </div>
+        <footer className="app-footer">
+          <p>
+            Update results by editing <code>public/data/matches.json</code>, then
+            redeploy. Leaderboards recalculate automatically.
+          </p>
+        </footer>
+      </div>
+    </TeamSelectProvider>
   );
 }

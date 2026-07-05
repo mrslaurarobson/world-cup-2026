@@ -4,8 +4,21 @@ import type {
   HammeringResult,
   Match,
   PlayerRow,
+  Stage,
   TeamRow,
 } from "../types";
+
+// Human-friendly names for each stage, used as a fallback when a match has no
+// explicit label.
+export const STAGE_LABELS: Record<Stage, string> = {
+  group: "Group",
+  r32: "Round of 32",
+  r16: "Round of 16",
+  qf: "Quarter-final",
+  sf: "Semi-final",
+  third: "Third place",
+  final: "Final",
+};
 
 // Disciplinary points scoring.
 const YELLOW_POINTS = 1;
@@ -220,4 +233,114 @@ export function finalResult(matches: Match[]): FinalResult {
     runnerUpTeam,
     runnerUpPlayer: playerOf(runnerUpTeam),
   };
+}
+
+// A single match from one team's point of view.
+export interface TeamMatchResult {
+  id: string;
+  opponent: string;
+  goalsFor: number;
+  goalsAgainst: number;
+  yellow: number;
+  red: number;
+  outcome: "W" | "D" | "L";
+  // Set only for a knockout tie level after 90/120 mins that had a winner
+  // marked (i.e. decided on penalties): true if this team went through.
+  penaltyWin?: boolean;
+  stage: Stage;
+  label: string;
+}
+
+// Everything the Team page needs about one country, aggregated from the matches
+// played so far (chronological order preserved in `results`).
+export interface TeamProfile {
+  team: string;
+  owner: string | null;
+  played: number;
+  won: number;
+  drawn: number;
+  lost: number;
+  goalsFor: number;
+  goalsAgainst: number;
+  goalDifference: number;
+  cleanSheets: number;
+  failedToScore: number;
+  yellows: number;
+  reds: number;
+  leaguePoints: number;
+  results: TeamMatchResult[];
+}
+
+export function teamProfile(matches: Match[], team: string): TeamProfile {
+  const profile: TeamProfile = {
+    team,
+    owner: allocations[team] ?? null,
+    played: 0,
+    won: 0,
+    drawn: 0,
+    lost: 0,
+    goalsFor: 0,
+    goalsAgainst: 0,
+    goalDifference: 0,
+    cleanSheets: 0,
+    failedToScore: 0,
+    yellows: 0,
+    reds: 0,
+    leaguePoints: 0,
+    results: [],
+  };
+
+  for (const m of matches) {
+    const isA = m.teamA === team;
+    const isB = m.teamB === team;
+    if (!isA && !isB) continue;
+
+    const goalsFor = isA ? m.scoreA : m.scoreB;
+    const goalsAgainst = isA ? m.scoreB : m.scoreA;
+    const yellow = isA ? m.yellowA : m.yellowB;
+    const red = isA ? m.redA : m.redB;
+    const opponent = isA ? m.teamB : m.teamA;
+
+    let outcome: "W" | "D" | "L";
+    if (goalsFor > goalsAgainst) outcome = "W";
+    else if (goalsFor < goalsAgainst) outcome = "L";
+    else outcome = "D";
+
+    const penaltyWin =
+      goalsFor === goalsAgainst && m.winner ? m.winner === team : undefined;
+
+    profile.played += 1;
+    profile.goalsFor += goalsFor;
+    profile.goalsAgainst += goalsAgainst;
+    profile.yellows += yellow;
+    profile.reds += red;
+    if (goalsAgainst === 0) profile.cleanSheets += 1;
+    if (goalsFor === 0) profile.failedToScore += 1;
+
+    if (outcome === "W") {
+      profile.won += 1;
+      profile.leaguePoints += WIN_POINTS;
+    } else if (outcome === "L") {
+      profile.lost += 1;
+    } else {
+      profile.drawn += 1;
+      profile.leaguePoints += DRAW_POINTS;
+    }
+
+    profile.results.push({
+      id: m.id,
+      opponent,
+      goalsFor,
+      goalsAgainst,
+      yellow,
+      red,
+      outcome,
+      penaltyWin,
+      stage: m.stage,
+      label: m.label ?? STAGE_LABELS[m.stage],
+    });
+  }
+
+  profile.goalDifference = profile.goalsFor - profile.goalsAgainst;
+  return profile;
 }

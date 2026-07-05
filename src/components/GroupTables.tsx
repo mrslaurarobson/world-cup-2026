@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { allocations } from "../data/allocations";
 import { normalizeTeam } from "../data/teamNames";
+import { TeamLink } from "./TeamLink";
 import type { Match } from "../types";
 
 const GROUPS_URL = `${import.meta.env.BASE_URL}data/groups.json`;
@@ -135,7 +136,7 @@ export default function GroupTables({ matches }: { matches: Match[] }) {
               {group.standings.map((row, i) => (
                 <tr key={row.team} className={i < 2 ? "qualifies" : ""}>
                   <td className="group-team-col">
-                    <span className="group-team">{row.team}</span>
+                    <TeamLink team={row.team} className="group-team" />
                     {row.owner && (
                       <span className="group-owner">{row.owner}</span>
                     )}

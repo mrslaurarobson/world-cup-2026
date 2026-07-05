@@ -1158,5 +1158,18 @@
     "yellowB": 4,
     "redB": 0,
     "label": "Round of 16"
+  },
+  {
+    "id": "fx-2026-07-04-paraguay-france",
+    "stage": "r16",
+    "teamA": "Paraguay",
+    "teamB": "France",
+    "scoreA": 0,
+    "scoreB": 1,
+    "yellowA": 0,
+    "redA": 0,
+    "yellowB": 3,
+    "redB": 0,
+    "label": "Round of 16"
   }
 ]

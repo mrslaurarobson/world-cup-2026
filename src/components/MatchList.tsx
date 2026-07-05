@@ -1,4 +1,5 @@
 import { allocations } from "../data/allocations";
+import { TeamLink } from "./TeamLink";
 import type { Match, Stage } from "../types";
 
 const STAGE_LABELS: Record<Stage, string> = {
@@ -42,7 +43,7 @@ export default function MatchList({ matches }: { matches: Match[] }) {
             </span>
             <div className="match-teams">
               <span className={aWin ? "team win" : "team"}>
-                {m.teamA}
+                <TeamLink team={m.teamA} />
                 <span className="team-owner">{owner(m.teamA)}</span>
                 <span className="team-cards">
                   {cardSummary(m.yellowA, m.redA)}
@@ -52,7 +53,7 @@ export default function MatchList({ matches }: { matches: Match[] }) {
                 {m.scoreA} <span className="dash">-</span> {m.scoreB}
               </span>
               <span className={bWin ? "team win" : "team"}>
-                {m.teamB}
+                <TeamLink team={m.teamB} />
                 <span className="team-owner">{owner(m.teamB)}</span>
                 <span className="team-cards">
                   {cardSummary(m.yellowB, m.redB)}

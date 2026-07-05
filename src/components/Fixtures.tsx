@@ -3,6 +3,7 @@ import { allocations } from "../data/allocations";
 import { normalizeTeam } from "../data/teamNames";
 import { flagFor } from "../data/flags";
 import FixtureResultEditor from "./FixtureResultEditor";
+import { TeamLink } from "./TeamLink";
 import { fixtureMatchId, teamsKnown, type Fixture } from "../lib/fixtureMatch";
 import type { Match } from "../types";
 
@@ -21,6 +22,16 @@ interface Props {
 
 function owner(team: string): string | null {
   return allocations[normalizeTeam(team)] ?? null;
+}
+
+// Render a fixture's team name as a link to its Team page when it resolves to a
+// known sweepstake team; knockout placeholders (e.g. "2A", "W74") stay as text.
+function renderTeam(name: string) {
+  const canonical = normalizeTeam(name);
+  if (allocations[canonical]) {
+    return <TeamLink team={canonical}>{name}</TeamLink>;
+  }
+  return name;
 }
 
 const UK_TZ = "Europe/London";
@@ -227,7 +238,7 @@ export default function Fixtures({
                               loading="lazy"
                             />
                           )}
-                          {f.team1}
+                          {renderTeam(f.team1)}
                         </span>
                         {ownerA && (
                           <span className="fixture-owner">{ownerA}</span>
@@ -255,7 +266,7 @@ export default function Fixtures({
                               loading="lazy"
                             />
                           )}
-                          {f.team2}
+                          {renderTeam(f.team2)}
                         </span>
                         {ownerB && (
                           <span className="fixture-owner">{ownerB}</span>
