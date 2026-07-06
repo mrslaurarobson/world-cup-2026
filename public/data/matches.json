@@ -1171,5 +1171,31 @@
     "yellowB": 3,
     "redB": 0,
     "label": "Round of 16"
+  },
+  {
+    "id": "fx-2026-07-05-brazil-norway",
+    "stage": "r16",
+    "teamA": "Brazil",
+    "teamB": "Norway",
+    "scoreA": 1,
+    "scoreB": 2,
+    "yellowA": 1,
+    "redA": 0,
+    "yellowB": 0,
+    "redB": 0,
+    "label": "Round of 16"
+  },
+  {
+    "id": "fx-2026-07-05-mexico-england",
+    "stage": "r16",
+    "teamA": "Mexico",
+    "teamB": "England",
+    "scoreA": 2,
+    "scoreB": 3,
+    "yellowA": 2,
+    "redA": 0,
+    "yellowB": 4,
+    "redB": 1,
+    "label": "Round of 16"
   }
 ]
