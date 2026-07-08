@@ -1223,5 +1223,32 @@
     "yellowB": 0,
     "redB": 0,
     "label": "Round of 16"
+  },
+  {
+    "id": "fx-2026-07-07-argentin-egypt",
+    "stage": "r16",
+    "teamA": "Argentina",
+    "teamB": "Egypt",
+    "scoreA": 3,
+    "scoreB": 2,
+    "yellowA": 0,
+    "redA": 0,
+    "yellowB": 4,
+    "redB": 0,
+    "label": "Round of 16"
+  },
+  {
+    "id": "fx-2026-07-07-switzerl-colombia",
+    "stage": "r16",
+    "teamA": "Switzerland",
+    "teamB": "Colombia",
+    "scoreA": 0,
+    "scoreB": 0,
+    "yellowA": 3,
+    "redA": 0,
+    "yellowB": 2,
+    "redB": 0,
+    "label": "Round of 16",
+    "winner": "Switzerland"
   }
 ]
