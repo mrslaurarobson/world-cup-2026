@@ -2730,6 +2730,21 @@
       "time": "16:00 UTC-4",
       "team1": "France",
       "team2": "Morocco",
+      "score": {
+        "ft": [2, 0],
+        "ht": [0, 0]
+      },
+      "goals1": [
+        {
+          "name": "Kylian Mbappé",
+          "minute": "60"
+        },
+        {
+          "name": "Ousmane Dembélé",
+          "minute": "66"
+        }
+      ],
+      "goals2": [],
       "ground": "Boston (Foxborough)"
     },
     {
@@ -2764,7 +2779,7 @@
       "num": 101,
       "date": "2026-07-14",
       "time": "14:00 UTC-5",
-      "team1": "W97",
+      "team1": "France",
       "team2": "W98",
       "ground": "Dallas (Arlington)"
     },

@@ -1250,5 +1250,18 @@
     "redB": 0,
     "label": "Round of 16",
     "winner": "Switzerland"
+  },
+  {
+    "id": "fx-2026-07-09-france-morocco",
+    "stage": "qf",
+    "teamA": "France",
+    "teamB": "Morocco",
+    "scoreA": 2,
+    "scoreB": 0,
+    "yellowA": 0,
+    "redA": 0,
+    "yellowB": 1,
+    "redB": 0,
+    "label": "Quarter-final"
   }
 ]
