@@ -1263,5 +1263,44 @@
     "yellowB": 1,
     "redB": 0,
     "label": "Quarter-final"
+  },
+  {
+    "id": "fx-2026-07-10-spain-belgium",
+    "stage": "qf",
+    "teamA": "Spain",
+    "teamB": "Belgium",
+    "scoreA": 2,
+    "scoreB": 1,
+    "yellowA": 2,
+    "redA": 0,
+    "yellowB": 2,
+    "redB": 0,
+    "label": "Quarter-final"
+  },
+  {
+    "id": "fx-2026-07-11-norway-england",
+    "stage": "qf",
+    "teamA": "Norway",
+    "teamB": "England",
+    "scoreA": 1,
+    "scoreB": 2,
+    "yellowA": 1,
+    "redA": 0,
+    "yellowB": 0,
+    "redB": 0,
+    "label": "Quarter-final"
+  },
+  {
+    "id": "fx-2026-07-11-argentin-switzerl",
+    "stage": "qf",
+    "teamA": "Argentina",
+    "teamB": "Switzerland",
+    "scoreA": 3,
+    "scoreB": 1,
+    "yellowA": 3,
+    "redA": 0,
+    "yellowB": 1,
+    "redB": 1,
+    "label": "Quarter-final"
   }
 ]
