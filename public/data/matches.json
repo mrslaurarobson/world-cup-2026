@@ -1302,5 +1302,44 @@
     "yellowB": 1,
     "redB": 1,
     "label": "Quarter-final"
+  },
+  {
+    "id": "fx-2026-07-14-france-spain",
+    "stage": "sf",
+    "teamA": "France",
+    "teamB": "Spain",
+    "scoreA": 0,
+    "scoreB": 2,
+    "yellowA": 2,
+    "redA": 0,
+    "yellowB": 1,
+    "redB": 0,
+    "label": "Semi-final"
+  },
+  {
+    "id": "fx-2026-07-15-england-argentin",
+    "stage": "sf",
+    "teamA": "England",
+    "teamB": "Argentina",
+    "scoreA": 1,
+    "scoreB": 2,
+    "yellowA": 1,
+    "redA": 0,
+    "yellowB": 3,
+    "redB": 0,
+    "label": "Semi-final"
+  },
+  {
+    "id": "fx-2026-07-18-france-england",
+    "stage": "third",
+    "teamA": "France",
+    "teamB": "England",
+    "scoreA": 4,
+    "scoreB": 6,
+    "yellowA": 0,
+    "redA": 0,
+    "yellowB": 0,
+    "redB": 0,
+    "label": "Match for third place"
   }
 ]
