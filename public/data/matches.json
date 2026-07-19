@@ -1341,5 +1341,18 @@
     "yellowB": 0,
     "redB": 0,
     "label": "Match for third place"
+  },
+  {
+    "id": "fx-2026-07-19-spain-argentin",
+    "stage": "final",
+    "teamA": "Spain",
+    "teamB": "Argentina",
+    "scoreA": 1,
+    "scoreB": 0,
+    "yellowA": 0,
+    "redA": 0,
+    "yellowB": 5,
+    "redB": 1,
+    "label": "Final"
   }
 ]
